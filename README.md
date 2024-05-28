@@ -1,6 +1,23 @@
-# Read Me!
+# ReadMe
 
-## Hello 301 Academic Skills Centre, we hope our code can be useful to you - thank you so much for being great clients! - Team 04, Software Hut 2024
+## Introduction
+
+The project is a group work for the course COM3420 at the University of Sheffield. Ruby and React are used as the main programming languages for this project. All private information has been removed when mirroring the project to GitHub. The login system of this project relies on the university intranet, so the login and management functions may not be directly usable.
+
+## Page and Features
+
+### Homepage
+  
+![home](https://github.com/Featherwriting/Generative-AI-Prompt-Bank/assets/46664592/504e1809-ebe2-4c4c-a8be-2d3ab16c933d)
+#### Animation effects using react
+  
+![filter](https://github.com/Featherwriting/Generative-AI-Prompt-Bank/assets/46664592/8371c31d-ebc2-4934-af80-646a68965474)
+  
+![edit](https://github.com/Featherwriting/Generative-AI-Prompt-Bank/assets/46664592/a8358eb7-58ce-4459-93b9-d4bcccfb81ac)
+### Manage
+  
+![manage](https://github.com/Featherwriting/Generative-AI-Prompt-Bank/assets/46664592/764c9879-df99-4f88-9bc5-6436ab0752c6)
+
 
 ## The System
 
