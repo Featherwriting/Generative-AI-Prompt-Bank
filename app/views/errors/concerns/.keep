@@ -1,0 +1,13 @@
+# Errors
+
+## What is contained within this directory?
+
+This directory stores the error pages for each HTTP status code that can be returned by the site, which are:
+
+- 404 - Not Found
+
+- 422 - Unprocessable Entity
+
+- 500 - Internal Server Error 
+
+More detailed information about each of these status codes can [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) courtey of Mozilla.

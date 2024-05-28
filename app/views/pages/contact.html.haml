@@ -1,0 +1,80 @@
+
+.banner
+  .banner-centered
+    %p.banner-title Contact Us
+.after-banner
+  .after-banner-centered
+    %p.large-banner-text Want more information or have any concerns? Here's how you can talk to us!
+.container-sm.text-left
+  %br
+  %h4 
+    Feel free to reach out to our staff using the following contact information:
+  %br
+
+  %h5{style: "text-decoration: underline;"} Email
+  %p{ style: "padding-left: 20px;" }
+    %strong Email is currently the best way of contacting the 301 team:
+    %br
+    %a{:href => "mailto:301@sheffield.ac.uk", style: "text-decoration: underline;"} 301@sheffield.ac.uk
+  %br
+
+  %h5{style: "text-decoration: underline;"} Phone Numbers
+  %ul
+    %li
+      %strong 301 Phone Number:
+      %a{:href => "tel:++441142229744"} +44 114 222 9744
+    %li
+      %strong International Calls to the University:
+      %a{:href => "tel:+441142222000"} +44 114 222 2000
+    %li
+      %strong Calls from the UK to the University:
+      %a{:href => "tel:01142222000"} 0114 222 2000
+  %br
+
+  %h5{style: "text-decoration: underline;"} Address
+  %p{ style: "padding-left: 20px;" }
+    %strong You can contact us at the following address:
+    %br
+    301 Academic Skills Centre
+    %br
+    The University of Sheffield
+    %br
+    301 Glossop Road
+    %br
+    Sheffield 
+    %br
+    S10 2HL
+    %br
+  %br
+  %h5{style: "text-decoration: underline;"} Visit the main site of 301 academic skills
+  %ul
+    %li
+      %strong 301 Home Page:
+      %a{href: "https://students.sheffield.ac.uk/301"} 301 Contact Page
+    %li
+      %strong 301 Contact Page:
+      %a{href: "https://students.sheffield.ac.uk/301/contact"} 301 Contact Page
+  %br
+  %h5 Send an email to us directly from here!
+  %br
+  
+  - flash.each do |key, value|
+    %div{class: "alert alert-#{key}"}
+      = value
+
+  %form{action: "/contact_form/submit_contact", method: "post"}
+    %input{name: "authenticity_token", type: "hidden", value: form_authenticity_token}
+    .mb-4
+      %label.form-label{for: "InputEmail1"} Email address
+      %input#InputEmail1.form-control{"aria-describedby" => "emailHelp", type: "email", name: "contact_form[email]", placeholder: "your.emailaddress@here.com"}
+        
+    .mb-4
+      %label.form-label{for: "InputInfo1"} Message
+      .form-floating
+        %textarea#floatingTextarea2.form-control{placeholder: "Leave your message here", style: "height: 100px", name: "contact_form[message]"}
+        %label.text-muted{for: "floatingTextarea2"} Type your message here
+    
+    %button.btn.purple-submit-btn{type: "submit"} Send
+
+  %br
+

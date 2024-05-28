@@ -1,0 +1,19 @@
+# Mailers
+
+## What is contained within this directory?
+
+This directory contains the ruby code for 'mailers,' which control the sending of emails from forms on the site.
+
+## Files contained within this directory:
+
+### application_mailer
+
+This is a child of the default mailer object. This isn't used by the contact forms, but is a parent of the actual contact and user mailers.
+
+### contact_form_mailer
+
+This is the mailer that sends the message from the contact form to the 301 Centre. 
+
+### user_mailer
+
+This is the mailer used by admins to email users. It can send both approve and reject emails based on the outcome of the submission 

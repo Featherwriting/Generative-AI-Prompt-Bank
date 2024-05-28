@@ -1,0 +1,47 @@
+# Controllers
+
+## What is contained within this directory?
+
+This folder contains all of the Controllers for the app, which receive and manage inputs to the application, structured as Ruby Objects.
+
+## Files contained within this directory
+
+### admins_controller
+
+This file is the controller for the admin role, such as functions for pages requiring the admin role, promoting users to admin.
+
+### application_controller
+
+This file is the parent object for all of the controllers in the system. It only controls disabling caching.
+
+### categories_controller
+
+This file is the controller for the categories of prompts, handling for example the creation and updating of categories.
+
+### contact_form_controller
+
+This file is the controller for the contact form, handling the submission and verification of the form. 
+
+### errors_controller
+
+This file is the controller for the parsing and display of errors, returning HTTP response codes.
+
+### issues_controller
+
+This file is the controller for the issues relating to prompts, such as updating and adding issues.
+
+### managers_controller
+
+This file is the controller for the manager role, handling similar jobs as the admin role controller.
+
+### pages_controller
+
+This file controls the filtering and retrieval of prompts, used in the prompt builder primarily
+
+### prompts_controller
+
+This file is the controller for prompts in general, handling the creation, status changes and approval / rejection of prompts.
+
+### tags_controller
+
+This file controls the tags relating to prompts, allowing admins to create, update and destroy tags.

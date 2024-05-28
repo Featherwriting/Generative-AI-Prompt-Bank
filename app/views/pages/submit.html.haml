@@ -1,0 +1,49 @@
+.banner
+    .banner-centered
+        %p.banner-title Submit Prompts
+.after-banner
+    .after-banner-centered
+        %p.large-banner-text Got a suggestion? Request a prompt here!
+
+.container-md.mb-5.mt-5
+    .row
+        .col-1
+        .col-6
+            %form{action: "/prompts/submit_prompt", method: "post"}
+                %input{name: "authenticity_token", type: "hidden", value: form_authenticity_token}
+                .mb-4
+                    %label.form-label{for: "InputEmail1"} Email address
+                    %input#InputEmail1.form-control{"aria-describedby" => "emailHelp", type: "email", name: "prompt[email]", placeholder: "Only university emails"}
+                    
+                .mb-4
+                    %label.form-label{for: "InputPrompt1"} Prompt
+                    .form-floating
+                        %textarea#floatingTextarea2.form-control{placeholder: "Leave a comment here", style: "height: 100px", name: "prompt[text]"}
+                        %label.text-muted{for: "floatingTextarea2"} Type your prompt here
+                    .text-muted For example: “Trace the historical development of [concept/idea] and examine its contemporary significance.”
+                
+                .mb-4
+                    %label.form-label{for: "inputExample"} Example Link
+                    #inputExample
+
+                .col-md-6.mb-4
+                    %label.form-label{for: "selectCategory"} Category
+                    %select#selectCategory.form-select{name: "prompt[category]"}
+                        %option{selected: "selected"} Choose category...
+                        - Category.all.each do |category|
+                            %option{value: "#{category.id}"}= category.name
+                
+                .col-md-6.mb-4
+                    %label.form-label{for: "inputTag"} Tags
+                    #inputTag
+                
+                %input#hiddenInputTag{name: "prompt[tag]", type: "hidden"}
+                .col-md-6.mb-4
+                    %label.form-label{for: "inputIssue"} Issue to Consider
+                    #inputIssue
+                %input#hiddenInputIssue{name: "prompt[issue]", type: "hidden"}
+                %button.btn.purple-submit-btn{type: "submit"} Submit
+
+= append_javascript_pack_tag 'submit'
+= append_javascript_pack_tag 'example'
+            

@@ -1,0 +1,19 @@
+# Styles
+
+## What is contained within this directory?
+
+This directory contains the CSS stylesheets, which control the visual look of the elements on the site. The individual elements are styled using 'classes,' which correspond to the element types or the ids that correspond to their function.
+
+## Files contained within this directory:
+
+### Admin_page:
+Contains the stylesheet of the admin page.
+
+### Contact:
+Contains the stylesheet for the 'contact us' page.
+
+### Layout:
+Contains the stylesheet for the main prompt builder page.
+
+### twitter_boostrap and variables:
+These files contain styles imported from the bootstrap library, which we are using to provide aditionnal styling functionality.

@@ -1,0 +1,461 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    font-family: "Source Sans 3", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Source Sans 3", sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* ==================================================== */
+/* NAVBAR CONTAINERS
+/* ==================================================== */
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+div.navbar-flexbox {
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 75vw;
+}
+
+div.navbar-flexbox img {
+    width: 250px;
+    height: auto;
+}
+
+div.navbar-right-items {
+    display: flex;
+    gap: 20px;
+}
+
+div.navbar-right-items a {
+    margin: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #2B353E;
+}
+
+/* ==================================================== */
+/* BANNERS (TITLES OF PARTS OF THE WEBPAGE)
+/* ==================================================== */
+div.banner {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(68, 00, 153);
+}
+
+div.banner-centered {
+    width: 75vw;
+    background-color: rgb(68, 00, 153);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.banner-centered i {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    padding: 15px;
+    text-align: center;
+}
+
+div.banner-centered p.banner-title {
+    color: white;
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    padding: 15px;
+    text-align: center;
+}
+
+div.banner-centered p {
+    font-size: 22px;
+    margin-right: 30px;
+    text-align: center;
+    color: white;
+}
+
+div.banner-centered p a {
+    color: orange;
+}
+
+div.after-banner {
+    display: flex;
+    justify-content: center;
+    background-color: #2B353E;
+}
+
+div.after-banner-centered {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    width: 75vw;
+}
+
+div.banner-centered-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+div.after-banner-centered p {
+    color: white;
+    padding: 10px;
+    padding-left: 15px;
+    margin: 0;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.after-banner-centered a {
+    color: white;
+    padding: 12px;
+    padding-left: 15px;
+    margin: 0;
+    font-weight: 300;
+    font-size: 19px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.after-banner-centered p.large-banner-text {
+    font-size: 20px;
+    margin: 0;
+    padding-left: 15px;
+}
+
+
+/* ==================================================== */
+/* CATEGORY, PROMPTS AND PROMPT BUILDER FLEXBOX WRAPPER */
+/* ==================================================== */
+/* layer 1 container */
+div.three-boxes-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: lightgray;
+    padding: 20px 25px 20px 25px;
+}
+
+/* layer 2 bubbles container */
+div.select-box-items {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding: 4px;
+    margin: 10px;
+    gap: 10px;
+    width: 100%;
+}
+
+
+div.category-box-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 4px;
+    margin: 10px;
+    width: 80%;
+    gap: 10px;
+}
+
+div.prompt-builder {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 2px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    gap: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 80%;
+    min-height: 100px;
+}
+
+div.individual-drag-container {
+    max-width: 20%;
+    display: flex;
+}
+
+/* layer 3 - individual bubbles */
+div.individual-drag-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid white;
+    flex-direction: row-reverse;
+}
+
+/* hover effects */
+div.individual-drag-item:hover {
+    border: 2px solid rgb(68, 00, 153);
+    cursor: grab;
+}
+
+div.individual-drag-item p {
+    color: black;
+    font-size: 15px;
+    padding: 12px;
+    margin: 4px;
+    border-radius: 5px;
+}
+
+div.individual-drag-item button {
+    color: black;
+    font-size: 15px;
+    padding: 12px;
+    margin: 4px;
+    border-radius: 5px;
+}
+
+div.individual-drag-item-content {
+    display: inline;
+}
+
+/* ==================================================== */
+/* CAROUSEL FOR PROMPTS 
+/* ==================================================== */
+
+div.prompt-carousel {
+    min-height: 40%;
+}
+
+button.prompt-carousel-button-left {
+    justify-content: flex-start;
+    align-content: center;
+    width:auto;
+    padding-left:20px;
+}
+
+button.prompt-carousel-button-right {
+    justify-content: flex-end;
+    align-content: center;
+    width:auto;
+    padding-right:20px;
+}
+
+div.carousel-page-text {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: lightgray;
+}
+
+h5.carousel-page-text {
+    color: black;
+    width: fit-content;
+}
+
+span.prompt-carousel-icons-black {
+    /* make the icons black*/
+    filter: invert(100%);
+}
+
+/* ==================================================== */
+/* FOOTER 
+/* ==================================================== */
+footer {
+    display: flex;
+    background-color: #2B353E;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+/* footer links columns container */
+footer div.footer-column-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 80vw;
+    border-bottom: 2px solid grey;
+    padding-bottom: 10px;
+}
+
+/* footer links container */
+footer div.footer-links-div-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* the links in the footer */
+footer div.footer-links-div-wrapper a#footer-link {
+    padding: 5px;
+    color: white;
+    font-size: 17px;
+}
+
+footer div.footer-links-div-wrapper address {
+    color: white;
+    font-size: 16px;
+}
+
+/* russell group image */
+footer div.russel-image-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+}
+
+footer div.russel-image-wrapper {
+    padding: 10px;
+    margin: 5px;
+}
+
+footer div.russel-image-wrapper img {
+    width: 10vw;
+    height: auto;
+}
+
+/*copy to clipboard button*/
+
+div.copy-to-clipboard {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    background-color: transparent;
+    color: black;
+    border-radius: 5px;
+    max-height: fit-content;
+}
+/*edit prompt button*/
+
+div.edit-prompt{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background-color: transparent;
+    color: black;
+    border-radius: 5px;
+    max-height: fit-content;
+}
+
+.category {
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    width: 300px;            
+}
+  
+.category-header {
+    padding: 10px; 
+}
+
+.category-header h4 {
+    margin: 0;
+    font-size: 24px; 
+    color: #333;
+    margin: 5px;
+}
+
+.category-body {
+    padding: 16px;
+    padding-top: 0;
+    color: #666;            
+    font-size: 16px;         
+}
+
+.bg-light-gray {
+    background-color: lightgray;
+}
+.transparent-button {
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+/*pop-up box*/
+.alert-box-primary{
+    position:absolute;
+    top:40%;
+    left: 40%;
+    z-index: 100;
+    background: white;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #2B353E;
+    border-color: rgb(68, 00, 153);
+    border-width: 1rem;
+    height: 10rem;
+    width: 20rem;
+    font-family: "Source Sans 3", sans-serif;
+}
+
+#confirm-button{
+    background: white;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #2B353E;
+    border-color: rgb(68, 00, 153);
+    border-style: solid;
+    border-width: 5px;
+    font-family: "Source Sans 3", sans-serif;
+
+}
+
+.link-limited {
+    display: inline-block;
+    max-width: 100px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    vertical-align: bottom; 
+}
+

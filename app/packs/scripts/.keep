@@ -1,0 +1,22 @@
+# Scripts
+
+## What is contained within this directory?
+
+This directory contains the javascript scripts, which allow the webpage to be more interactive and functional.
+
+## Files contained within this directory:
+
+### Animate
+This file stores animations which are applied to elements on the webpage.
+
+### Categories
+This file contains functions which relate to the category selection portion of the main page, including how the Flipper element is ordered.
+
+### Data
+This file contains extra functions which control the filtering and manipulation of data for fetching categories.
+
+### Filter
+This file handles the filtering of prompt components, returning the filtered elements to the page.
+
+### Homedragger
+This file stores the functions which control the 'drag'n'drop' elements of the page, as we as the copy and edit button functionalities.

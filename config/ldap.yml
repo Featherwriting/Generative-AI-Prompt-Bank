@@ -1,0 +1,30 @@
+unishef: &unishef
+  host: adldap.shef.ac.uk
+  port: 636
+  base: DC=shefuniad,DC=shef,DC=ac,DC=uk
+  ssl: true
+
+  attribute: sAMAccountName
+
+  # Check the "AD LDAP - epiGenesys" note in LastPass for username and password
+  username: 
+  password: 
+
+development:
+  <<: *unishef
+
+test:
+  host: localhost
+  port: 1389
+  attribute: uid
+  base: ou=Users
+  ssl: false
+
+qa:
+  <<: *unishef
+
+demo:
+  <<: *unishef
+
+production:
+  <<: *unishef

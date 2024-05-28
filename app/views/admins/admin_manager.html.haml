@@ -1,0 +1,48 @@
+
+
+-@users = User.all
+
+.banner
+    .banner-centered
+        %p.banner-title Admin Manager
+
+
+.container-md.mb-5.mt-5
+    .row.justify-content-center
+        .btn-group.col-3{"aria-label" => "Basic example", role: "group"}
+            =link_to 'Current List', admin_manager_path, method: :get, class: 'btn purple-submit-btn'
+            =link_to 'Admin History', admin_history_path, method: :get, class: 'btn purple-submit-btn'
+        .mt-4
+        .col-9
+            %form.row.g-3{action: "/admins/promote_user", method: "post"}
+                .col-0
+                    %input.form-control-plaintext{name: "authenticity_token", type: "hidden", value: form_authenticity_token}
+                .col-9
+                    %input.form-control{"aria-describedby" => "emailHelp", type: "email", name: "email", placeholder: "Only university emails"}
+                .col-3
+                    %button.btn.btn-success{type: "submit"} Promote
+        .mt-4
+        .col-9
+
+
+        .mt-4
+        .col-9
+            .container.border-admin-container
+                %table.table
+                    %thead
+                        %tr
+                            %th.col-4 Emaill address
+                            %th.col-4 Account type
+                            %th.col-3 Demote button
+                    %tbody
+                        - @users.each do |user|
+                            - if user.active_state
+                                %tr
+                                    %td
+                                        = user.email
+                                    %td
+                                        = user.account_type
+                                    %td
+                                        = link_to 'Demote', demote_user_admins_path(id: user.id), method: :post, class: 'btn btn-danger'
+
+

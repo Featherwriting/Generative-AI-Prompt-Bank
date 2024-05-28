@@ -1,0 +1,57 @@
+.banner
+    .banner-centered
+        %p.banner-title Manage Tag
+.after-banner
+    .after-banner-centered.banner-centered-flex
+        %a{"aria-current" => "page", href: "/manage"} Manage
+        %a{"aria-current" => "page", href: "/prompt_review"} Prompt review
+        %a{"aria-current" => "page", href: "/manage_category"} Categories
+        %a{"aria-current" => "page", href: "/manage_issue"} Issues
+        %a{"aria-current" => "page", href: "/manage_tag"} Tags
+
+
+.container.mt-5
+    %form.form-inline.row{action: "/tags/add_tag", method: "post"}
+        %input{name: "authenticity_token", type: "hidden", value: form_authenticity_token}
+        .col-5
+            .form-floating.mb-3
+                %input#addTagName.form-control{name: "tag[name]",placeholder:" "}/
+                %label{for: "addTagName"} Name
+        .col-2
+            %button.btn.btn-outline-dark.btn-lg.mb-3.form-control{type: "submit"} Add a Tag 
+
+    
+
+%table.container.table.mt-5#table
+    %thead
+        %tr
+            %th{scope: "col"} #
+            %th{scope: "col"} Tag
+            %th{scope: "col"} 
+    %tbody
+        - id_counter = 1
+        #TagCount{"data-data" => Tag.count}
+        - Tag.order(:id).each do |tag|
+            %tr
+                %th{scope: "row"}= id_counter
+                
+                %td  
+                    = tag.name
+                %td
+                    - collapse_id = "collapse-#{id_counter}"
+                    %i.col-1.bi.bi-caret-down-fill{"data-bs-target" => "##{collapse_id}", "data-bs-toggle" => "collapse", 'data-bs-parent' => "#table"}
+            %tr
+                %td.collapse.container{id: "#{collapse_id}", colspan: "4"}
+                    %form.row.g-3.m-2{action: "/tags/update_tag", method: "post"}
+                        %input{name: "authenticity_token", type: "hidden", value: form_authenticity_token}
+                        %input#hiddenInputId{name: "tag[id]", type: "hidden", value: "#{tag.id}"}
+                        .col-md-12
+                            %label.form-label Name
+                            %input.form-control{name: "tag[name]", type: "text", value: tag.name}
+                        .col-md-12
+                            %button.btn.btn-primary{name: "tag[action]", value: "edit", type: "submit"} Edit
+                            %button.btn.btn-danger{name: "tag[action]", value: "delete", type: "submit"} Delete
+                        - id_counter += 1
+        %tr
+
+

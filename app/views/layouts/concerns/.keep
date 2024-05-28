@@ -1,0 +1,13 @@
+# Layouts
+
+## What is contained within this directory? 
+
+This directory stores the layouts of the main page of the site, stored in the HAML markup language.
+
+## application.html.haml
+
+This file is the main page of the site, notably missing many elements of the prompt builder, as they are added in from javascript files.
+
+## mailer.html and mailer.text.haml
+
+These files contain the layout of the mailer form.

@@ -1,0 +1,66 @@
+.banner
+    .banner-centered
+        %p.banner-title Manage Issue
+.after-banner
+    .after-banner-centered.banner-centered-flex
+        %a{"aria-current" => "page", href: "/manage"} Manage
+        %a{"aria-current" => "page", href: "/prompt_review"} Prompt review
+        %a{"aria-current" => "page", href: "/manage_category"} Categories
+        %a{"aria-current" => "page", href: "/manage_issue"} Issues
+        %a{"aria-current" => "page", href: "/manage_tag"} Tags
+
+.container.mt-5
+    %form.form-inline.row{action: "/issues/add_issue", method: "post"}
+        %input{name: "authenticity_token", type: "hidden", value: form_authenticity_token}
+        .col-5
+            .form-floating.mb-3
+                %input#addIssueName.form-control{name: "issue[name]",placeholder:" "}/
+                %label{for: "addIssueName"} Name
+        .col-5
+            .form-floating.mb-3
+                %input#addIssueLink.form-control{name: "issue[link]",placeholder:" "}/
+                %label{for: "addIssueLink"} Link
+        .col-2
+            %button.btn.btn-outline-dark.btn-lg.mb-3.form-control{type: "submit"} Add a Issue
+
+    
+
+%table.container.table.mt-5#table
+    %thead
+        %tr
+            %th{scope: "col"} #
+            %th{scope: "col"} Issue
+            %th{scope: "col"} Link
+            %th{scope: "col"} 
+    %tbody
+        - id_counter = 1
+        #IssueCount{"data-data" => Issue.count}
+        - Issue.order(:id).each do |issue|
+            %tr
+                %th{scope: "row"}= id_counter
+                
+                %td  
+                    = issue.name
+                %td  
+                    = issue.link
+                %td
+                    - collapse_id = "collapse-#{id_counter}"
+                    %i.col-1.bi.bi-caret-down-fill{"data-bs-target" => "##{collapse_id}", "data-bs-toggle" => "collapse", 'data-bs-parent' => "#table"}
+            %tr
+                %td.collapse.container{id: "#{collapse_id}", colspan: "4"}
+                    %form.row.g-3.m-2{action: "/issues/update_issue", method: "post"}
+                        %input{name: "authenticity_token", type: "hidden", value: form_authenticity_token}
+                        %input#hiddenInputId{name: "issue[id]", type: "hidden", value: "#{issue.id}"}
+                        .col-md-12
+                            %label.form-label Name
+                            %input.form-control{name: "issue[name]", type: "text", value: issue.name}
+                        .col-md-12
+                            %label.form-label Link
+                            %input.form-control{name: "issue[link]", type: "text", value: issue.link}
+                        .col-md-12 
+                            %button.btn.btn-primary{name: "issue[action]", value: "edit", type: "submit"} Edit
+                            %button.btn.btn-danger{name: "issue[action]", value: "delete", type: "submit"} Delete
+                        - id_counter += 1
+        %tr
+
+

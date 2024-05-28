@@ -1,0 +1,76 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "UTF-8"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+    %meta{http_equiv: "X-UA-Compatible", content: "ie=edge"}
+    %link{rel: "preconnect", href: "https://fonts.googleapis.com"}
+    %link{rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true}
+    %link{href: "https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap", rel: "stylesheet"}
+    %link{rel: "icon", href: "./favicon.ico", type: "image/x-icon"}
+    %script{src:"app/packs/js/popup.js", async:true}
+
+    %title Generative AI Prompt Bank
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_pack_tag 'styles', media: 'all'
+    = javascript_pack_tag 'application'
+    
+  %body
+    %header
+      %nav
+        .navbar-flexbox
+          .mt-2.mb-2
+            %a{href: "/"}
+              = image_pack_tag 'images/UOSLogo_Primary_Violet_RGB.svg', width: "25%", height: "25%"
+          .navbar-right-items
+            %a{href: "/home"} Home
+            %a{href: "/submit"} Submit a prompt
+            %a{href: "https://www.sheffield.ac.uk/academic-skills/study-skills-online/how-use-prompt-bank", target: "_blank"} How to use
+            - if user_signed_in?
+              = link_to 'Logout', destroy_user_session_path, method: :delete
+    %main
+      - if flash[:warning]
+        .alert.alert-warning.alert-dismissible.mb-0{role: "alert"}
+          = flash[:warning]
+      = yield
+      
+%footer
+  .footer-column-div
+    .footer-links-div-wrapper
+      %a#footer-link{href: "/submit"} Submit a prompt
+      %a#footer-link{href: "/contact"} Contact Us
+      %a#footer-link{href: "https://www.sheffield.ac.uk/new-students/unfair-means"} Unfair Means Guidance
+    .footer-links-div-wrapper
+      %a#footer-link{href: "https://www.sheffield.ac.uk/academic-skills/study-skills-online/generative-ai-assessment"} Generative AI in Assessments
+      %a#footer-link{href: "https://www.sheffield.ac.uk/academic-skills/study-skills-online/generative-ai-essay-andor-report-writing"} Generative AI for essay and report writing
+      %a#footer-link{href: "https://sheffield.libguides.com/genai"} Generative AI literacy
+    .footer-links-div-wrapper
+      %a#footer-link{href: "https://www.sheffield.ac.uk/departments"} Departments and services
+      %a#footer-link{href: "https://su.sheffield.ac.uk/"} Student Union
+      %a#footer-link{href: "https://www.sheffield.ac.uk/"} University of Sheffield Site
+      %a#footer-link{href: "/entrance"} Staff Entrance
+    .footer-links-div-wrapper
+      %address
+        The University of Sheffield
+        %br/
+        Western Bank
+        %br/
+        Sheffield
+        %br/
+        S10 2TN
+        %br/
+        +44 114 222 2000
+  .russel-image-container
+    .russel-image-wrapper
+      = image_pack_tag 'images/russell.png'
+    -# .social-media-container
+    -#   %a#social-media-link
+    -#     img
+    -#     %img{src: ""}/
+    -#   %a#social-media-link
+    -#     img
+    -#     %img{src: ""}/
+    -#   %a#social-media-link
+    -#     img
+    -#     %img{src: ""}/

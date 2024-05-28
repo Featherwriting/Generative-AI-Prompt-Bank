@@ -1,0 +1,26 @@
+# Pages
+
+## What is contained within this directory?
+
+This directory stores the HAML code for each of the pages in the application.
+
+## contact.html.haml
+
+This is the layout and elements of the contact page.
+
+## entrance.html.haml
+
+This is the layout for the staff page login screen.
+
+## home.html.haml
+
+This is the default page. application.html.haml is linked into this page, hence why it isn't very long.
+
+## privacy.html.haml
+
+This is the privacy page.
+
+## submit.html.haml
+
+This is the page for prompt submission.
+

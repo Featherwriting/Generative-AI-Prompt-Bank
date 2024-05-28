@@ -1,0 +1,65 @@
+.banner
+    .banner-centered
+        %p.banner-title Manage Category
+.after-banner
+    .after-banner-centered.banner-centered-flex
+        %a{"aria-current" => "page", href: "/manage"} Manage
+        %a{"aria-current" => "page", href: "/prompt_review"} Prompt review
+        %a{"aria-current" => "page", href: "/manage_category"} Categories
+        %a{"aria-current" => "page", href: "/manage_issue"} Issues
+        %a{"aria-current" => "page", href: "/manage_tag"} Tags
+
+.container.mt-5
+    %form.form-inline.row{action: "/categories/add_category", method: "post"}
+        %input{name: "authenticity_token", type: "hidden", value: form_authenticity_token}
+        .col-5
+            .form-floating.mb-3
+                %input#addCategoryName.form-control{name: "category[name]",placeholder:" "}/
+                %label{for: "addCategoryName"} Name
+        .col-5
+            .form-floating.mb-3
+                %input#addCategoryPurpose.form-control{name: "category[purpose]",placeholder:" "}/
+                %label{for: "addCategoryPurpose"} Purpose 
+        .col-2
+            %button.btn.btn-outline-dark.btn-lg.mb-3.form-control{type: "submit"} Add a Category
+
+    
+
+%table.container.table.mt-5#table
+    %thead
+        %tr
+            %th{scope: "col"} #
+            %th{scope: "col"} Category
+            %th{scope: "col"} Purpose
+            %th{scope: "col"} 
+    %tbody
+        - id_counter = 1
+        #CategoryCount{"data-data" => Category.count}
+        - Category.order(:id).each do |category|
+            %tr
+                %th{scope: "row"}= id_counter
+                
+                %td  
+                    = category.name
+                %td  
+                    = category.purpose
+                %td
+                    - collapse_id = "collapse-#{id_counter}"
+                    %i.col-1.bi.bi-caret-down-fill{"data-bs-target" => "##{collapse_id}", "data-bs-toggle" => "collapse", 'data-bs-parent' => "#table"}
+            %tr
+                %td.collapse.container{id: "#{collapse_id}", colspan: "4"}
+                    %form.row.g-3.m-2{action: "/categories/update_category", method: "post"}
+                        %input{name: "authenticity_token", type: "hidden", value: form_authenticity_token}
+                        %input#hiddenInputId{name: "category[id]", type: "hidden", value: "#{category.id}"}
+                        .col-md-12
+                            %label.form-label Name
+                            %input.form-control{name: "category[name]", type: "text", value: category.name}
+                        .col-md-12
+                            %label.form-label Purpose
+                            %input.form-control{name: "category[purpose]", type: "text", value: category.purpose }
+                        .col-md-12
+                            %button.btn.btn-primary{type: "submit"} Edit
+                        - id_counter += 1
+        %tr
+
+
